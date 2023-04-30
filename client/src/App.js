@@ -12,11 +12,12 @@ const App = () => {
 			const responseJson = await getImages();
 			setImageList(responseJson.resources);
 			setNextCursor(responseJson.next_cursor);
+			console.log(responseJson)
 		};
-
+ 
 		fetchData();
 	}, []);
-
+     
 	const handleLoadMoreButtonClick = async () => {
 		const responseJson = await getImages(nextCursor);
 		setImageList((currentImageList) => [
